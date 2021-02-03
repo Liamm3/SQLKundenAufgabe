@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +22,29 @@ namespace CustomerApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        private SqlConnection conn = new SqlConnection();
+
         public MainWindow()
         {
             InitializeComponent();
+
+            conn.ConnectionString =
+                "Data Source=W011076SYS\\SQLEXPRESS;" +
+                "Initial Catalog=Aufgaben;" +
+                "Integrated Security=SSPI;";
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            SqlCommand comd = new SqlCommand("AddCustomer", conn);
+            comd.CommandType = CommandType.StoredProcedure;
+            comd.Parameters.Add("@FirstName", SqlDbType.VarChar).Value = firstNameInput.Text;
+            comd.Parameters.Add("@LastName", SqlDbType.VarChar).Value = lastNameInput.Text;
+            comd.Parameters.Add("@Birthdate", SqlDbType.Date).Value = birthdateInput.Text;
+
+            conn.Open();
+            comd.ExecuteNonQuery();
+            conn.Close();
         }
     }
 }
