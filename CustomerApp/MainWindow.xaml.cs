@@ -43,7 +43,25 @@ namespace CustomerApp
             comd.Parameters.Add("@Birthdate", SqlDbType.Date).Value = birthdateInput.Text;
 
             conn.Open();
-            comd.ExecuteNonQuery();
+
+            try
+            {
+                if (!String.IsNullOrWhiteSpace(firstNameInput.Text) &&
+                    !String.IsNullOrWhiteSpace(lastNameInput.Text) &&
+                    !String.IsNullOrWhiteSpace(birthdateInput.Text))
+                {
+                    comd.ExecuteNonQuery();
+
+                    firstNameInput.Text = "";
+                    lastNameInput.Text = "";
+                    birthdateInput.Text = "";
+                }
+            }
+            catch (Exception _)
+            {
+                // Handle Network error
+            }
+
             conn.Close();
         }
     }
