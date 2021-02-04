@@ -5,34 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CustomerApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="500">
-    <Grid>
+        Title="MainWindow" Height="300" Width="300">
+    <Grid Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Grid Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <Label>Vorname:</Label>
-            <TextBox Grid.Column="1" Margin="0,0,0,10" Name="firstNameInput" />
-            <Label Grid.Row="1">Nachname:</Label>
-            <TextBox Grid.Row="1" Grid.Column="1" Margin="0,0,0,10" Name="lastNameInput" />
-            <Label Grid.Row="2">Geburtsdatum:</Label>
-            <DatePicker Grid.Row="2" Grid.Column="1" Margin="0,0,0,10" Name="birthdateInput" />
-            <Button Grid.Row="3" Grid.Column="2" Click="Button_Click">Hinzufügen</Button>
-        </Grid>
-        <TextBlock Grid.Column="1">Hallo</TextBlock>
+        <Label>Vorname:</Label>
+        <TextBox Grid.Column="1" Margin="0,0,0,10" Name="firstNameInput" />
+        <Label Grid.Row="1">Nachname:</Label>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="0,0,0,10" Name="lastNameInput" />
+        <Label Grid.Row="2">Geburtsdatum:</Label>
+        <DatePicker Grid.Row="2" Grid.Column="1" Margin="0,0,0,10" Name="birthdateInput" />
+        <Button Grid.Row="3" Grid.Column="2" Click="Button_Click">Hinzufügen</Button>
     </Grid>
 </Window>
